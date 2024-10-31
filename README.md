@@ -26,14 +26,6 @@ The purpose of this project is to build an API from scratch for a social network
 
 
 
-  ## Usage
-  # Here is the login page:
-  ![Login page](image.png)
-  # Here is the main page"
-  ![Main page](image-1.png)
-  
-
-
   ## Credits 
   Starter code credit to Rutgers boot camp 
 
@@ -54,4 +46,4 @@ The purpose of this project is to build an API from scratch for a social network
 
   
   ## Questions
-  If you have any questions about this repo, please contact me directly at marqueljamal12@gmail.com. You can find more of my work on github at [marquel12](https://github.com/marquel12/Kanban-Board) 
+  If you have any questions about this repo, please contact me directly at marqueljamal12@gmail.com. You can find more of my work on github at [marquel12](https://github.com/marquel12/social-network-api) 
