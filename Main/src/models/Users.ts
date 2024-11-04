@@ -32,9 +32,23 @@ const userSchema = new Schema<IUser>(
         type: Schema.Types.ObjectId,
         ref: 'User'
     }]
+},
+{
+    toJSON:{
+        virtual:true,
+        getters:true //getters allow us to transform the data before it gets to the controller
+    }
+}
 
+
+
+);
+// get total count of friends on retrieval
+userSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
 });
 
 const User = model<IUser>('User', userSchema);
+
 
 export default User;
