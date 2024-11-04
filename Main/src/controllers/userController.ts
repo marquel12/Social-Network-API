@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 
   export const getUsers = async(_req: Request, res: Response) => {
     try {
-      const users = await User.find();
+      const users = await User.find().populate('friends').populate('thoughts');
       res.json(users);
     } catch (err) {
       res.status(500).json(err);
@@ -12,7 +12,7 @@ import { Request, Response } from 'express';
 
   export const getSingleUser = async(req: Request, res: Response) => {
     try {
-      const user = await User.findOne({ _id: req.params.userId })
+      const user = await User.findOne({ _id: req.params.userId }).populate('friends').populate('thoughts')
         .select('-__v');
 
       if (!user) {
@@ -88,7 +88,7 @@ import { Request, Response } from 'express';
       try {
         const updateUser = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: req.params.friendId } },
+            { $pull: { friends: req.params.friendId } },// remove friendId from friends array
             { new: true }
             );
         if (!updateUser) {
@@ -101,7 +101,7 @@ import { Request, Response } from 'express';
             res.status(500).json(err);
         }   
     }
-    
+
     
 
       
