@@ -7,8 +7,6 @@ interface IUser extends Document {
     friends: Schema.Types.ObjectId[];
 }
 
-
-
 const userSchema = new Schema<IUser>(
     {
     username: {
@@ -39,8 +37,6 @@ const userSchema = new Schema<IUser>(
         getters:true //getters allow us to transform the data before it gets to the controller
     }
 }
-
-
 
 );
 // get total count of friends on retrieval
