@@ -1,10 +1,8 @@
 # Social-Network-API
 The purpose of this project is to build an API from scratch for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list
 
-## Challenges 
-One of my biggest challenges is when 
-
-
+## My thoughts;
+As a new coder this was a challenge for me because I had a tough week understanding the concept around mongoose and mongodb. After going back and watching previous zoom recording, I realized this challenge was not as hard as I thought but but there was a lot of coding and time it took me to complete. Creating the models was the easy part. My biggest challenge was understanding how I was going to seed the data for the database. After taking the time to review previous activities, I had a better understanding on how I can seed the data. 
 
 
  ## Table of Contents
@@ -27,7 +25,13 @@ One of my biggest challenges is when
   Other key dependencies to install in the package.json
   - node.js
   - express
+  - mongoose
+  - seed
 
+
+## Usage
+Here is a screenshot showing a list of all users
+![Insomia screenshot](image.png)
 
 
   ## Credits 
