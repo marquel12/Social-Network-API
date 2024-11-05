@@ -39,6 +39,7 @@ export const updateThought = async (req, res) => {
         const updatedThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, req.body, { new: true });
         if (!updatedThought) {
             res.status(404).json({ message: 'No thought with this ID!' });
+            return; // exit the function
         }
         res.json(updatedThought);
     }
@@ -52,6 +53,7 @@ export const deleteThought = async (req, res) => {
         const deletedThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
         if (!deletedThought) {
             res.status(404).json({ message: 'No thought with this ID!' });
+            return;
         }
         res.json(deletedThought);
     }
@@ -65,6 +67,7 @@ export const addReaction = async (req, res) => {
         const updatedThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: { reactions: req.body } }, { new: true });
         if (!updatedThought) {
             res.status(404).json({ message: 'No thought with this ID!' });
+            return;
         }
         res.json(updatedThought);
     }
@@ -81,6 +84,7 @@ export const deleteReaction = async (req, res) => {
         );
         if (!updatedThought) {
             res.status(404).json({ message: 'No thought with this ID!' });
+            return;
         }
         res.json(updatedThought);
     }

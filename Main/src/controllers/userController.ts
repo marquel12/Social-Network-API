@@ -46,6 +46,7 @@ import { Request, Response } from 'express';
         if (!updatedUser) {
             res.status(404).json({ message: 'No user with this ID!' });
             return;
+            
             }
         res.json(updatedUser);
         } catch (err) {
@@ -60,6 +61,7 @@ import { Request, Response } from 'express';
         if (!deletedUser) {
           res.status(404).json({ message: 'No user with this ID!' });
           return;
+          
         }
         res.json(deletedUser);
       } catch (err) {
@@ -78,11 +80,13 @@ import { Request, Response } from 'express';
         if (!updatedUser) {
             res.status(404).json({message:'Friend not added'})
             return;
+            
         }
         res.json(updatedUser);
         }
         catch (err) {
             res.status(500).json(err);
+
         }
     }
 
@@ -98,12 +102,15 @@ import { Request, Response } from 'express';
             res.status(404).json({message:'Friend not deleted'})
             return;
         }
+
+          
         res.json(updateUser);
         }
         catch (err) {
             res.status(500).json(err);
         }   
     }
+
 
     
 

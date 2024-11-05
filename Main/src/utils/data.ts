@@ -80,32 +80,32 @@ const thoughtData = [{
 },
 ];  
 
-// get a random item given an array
-export const getRandom = (arr: any[]) => {
-    const randIndex = Math.floor(Math.random() * arr.length);
-    return arr[randIndex];
-  };
+// // get a random item given an array
+// export const getRandom = (arr: any[]) => {
+//     const randIndex = Math.floor(Math.random() * arr.length);
+//     return arr[randIndex];
+//   };
   
-  // get a random user
-  export const getRandomUser = () => getRandom(userData); //this function will return a random user from the userData array of object to 
+//   // get a random user
+//   export const getRandomUser = () => getRandom(userData); //this function will return a random user from the userData array of object to 
   
-  // add random friends to a user
-  export const addRandomFriends = (user: { _id: ObjectId; friends: ObjectId[] }, numFriends: number) => {
-    for (let i = 0; i < numFriends; i++) {
-      const randomUser = getRandomUser();
-      if (randomUser._id !== user._id && !user.friends.includes(randomUser._id)) { //if the random user is not the same as the user and the user does not already have the random user as a friend
-        user.friends.push(randomUser._id); //add the random user to the user's friends array
-      }
-    }
-    // return the updated user object
-    return user;
+//   // add random friends to a user
+//   export const addRandomFriends = (user: { _id: ObjectId; friends: ObjectId[] }, numFriends: number) => {
+//     for (let i = 0; i < numFriends; i++) {
+//       const randomUser = getRandomUser();
+//       if (randomUser._id !== user._id && !user.friends.includes(randomUser._id)) { //if the random user is not the same as the user and the user does not already have the random user as a friend
+//         user.friends.push(randomUser._id); //add the random user to the user's friends array
+//       }
+//     }
+//     // return the updated user object
+//     return user;
 
    
 
 
 
 
-    };
+   
 
 
     console.table(userData);

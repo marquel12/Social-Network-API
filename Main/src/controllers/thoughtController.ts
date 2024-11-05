@@ -42,6 +42,7 @@ import { Request, Response } from 'express';
                 const updatedThought = await Thought.findOneAndUpdate( { _id: req.params.thoughtId }, req.body, { new: true });
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
+                    return; // exit the function
             
                 }
                 res.json(updatedThought);
@@ -56,6 +57,7 @@ import { Request, Response } from 'express';
                 const deletedThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
                 if (!deletedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
+                    return;
                  
                 }
                 res.json(deletedThought);
@@ -74,6 +76,7 @@ import { Request, Response } from 'express';
                 );
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
+                    return;
                     
                 }
                 res.json(updatedThought);
@@ -92,6 +95,7 @@ import { Request, Response } from 'express';
                 );
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
+                    return;
                   
                 }
                 res.json(updatedThought);   

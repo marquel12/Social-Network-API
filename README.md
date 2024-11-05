@@ -1,6 +1,9 @@
 # Social-Network-API
 The purpose of this project is to build an API from scratch for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list
 
+## Challenges 
+One of my biggest challenges is when 
+
 
 
 
@@ -18,7 +21,8 @@ The purpose of this project is to build an API from scratch for a social network
   To install the necessary dependencies, run the following command:
   - npm install
   - npm run build 
-  - npm run start:dev
+  -npm run seed (very important step so that you can seed your data in the database)
+  - npm run start
 
   Other key dependencies to install in the package.json
   - node.js
