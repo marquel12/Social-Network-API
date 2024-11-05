@@ -32,6 +32,7 @@ As a new coder this was a challenge for me because I had a tough week understand
 ## Usage
 Here is a screenshot showing a list of all users
 ![Insomia screenshot](image.png)
+Check out my Walk through video using insomnia [Video](https://drive.google.com/file/d/1M0a5JR6LVvwaFSHfexyB9aazm7zUL_a-/view)
 
 
   ## Credits 
