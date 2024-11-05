@@ -3,8 +3,8 @@ import { Schema, model, type Document } from 'mongoose';
 interface IUser extends Document {
    username: string;
     email: string;
-    thoughts: Schema.Types.ObjectId[];
-    friends: Schema.Types.ObjectId[];
+    thoughts: string[];
+    friends:string[];
 }
 
 const userSchema = new Schema<IUser>(
@@ -35,13 +35,16 @@ const userSchema = new Schema<IUser>(
     toJSON:{
         virtual:true,
         getters:true //getters allow us to transform the data before it gets to the controller
-    }
+    },
+    
+        id: false // 
+    
 }
 
 );
 // get total count of friends on retrieval
 userSchema.virtual('friendCount').get(function() {
-    return this.friends.length;
+    return this.friends.length || 0;
 });
 
 const User = model<IUser>('User', userSchema);

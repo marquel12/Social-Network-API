@@ -1,7 +1,7 @@
 import Thought from '../models/Thoughts.js';   
 import { Request, Response } from 'express';
     
-      export const getThoughts = async(_req: Request, res: Response) => {
+      export const getAllThoughts = async(_req: Request, res: Response) => {
      try {
         const thoughts = await Thought.find().populate('reactions');
         
@@ -11,11 +11,16 @@ import { Request, Response } from 'express';
      }
       }
     
-      export const getSingleThought = async(req: Request, res: Response) => {
+      export const getThoughtById = async(req: Request, res: Response) => {
         try{
             const thought = await Thought.findOne({ _id: req.params.thoughtId }).populate('reactions')
             .select('-__v');
-            res.json(thought);
+            if (!thought) {
+                res.status(404).json({ message: 'No thought with that ID' });
+            } else {
+                res.json(thought);
+            }
+            
         } catch (err) {
             res.status(500).json(err);
         }
@@ -37,7 +42,7 @@ import { Request, Response } from 'express';
                 const updatedThought = await Thought.findOneAndUpdate( { _id: req.params.thoughtId }, req.body, { new: true });
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
-                    return;
+            
                 }
                 res.json(updatedThought);
             } catch (err) {
@@ -51,7 +56,7 @@ import { Request, Response } from 'express';
                 const deletedThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
                 if (!deletedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
-                    return;
+                 
                 }
                 res.json(deletedThought);
             } catch (err) {
@@ -69,7 +74,7 @@ import { Request, Response } from 'express';
                 );
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
-                    return;
+                    
                 }
                 res.json(updatedThought);
             } catch (err) {
@@ -87,7 +92,7 @@ import { Request, Response } from 'express';
                 );
                 if (!updatedThought) {
                     res.status(404).json({ message: 'No thought with this ID!' });
-                    return;
+                  
                 }
                 res.json(updatedThought);   
             }

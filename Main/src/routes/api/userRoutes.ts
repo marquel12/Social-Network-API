@@ -7,7 +7,7 @@ import { getUsers,
     deleteUserById, 
     addNewFriend, 
     deleteFriend, } 
-    from '../../controllers/videoController.js';
+    from '../../controllers/userController.js';
 
 // /api/users
 router.route('/').get(getUsers).post(createUser);

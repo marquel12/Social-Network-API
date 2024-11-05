@@ -3,7 +3,8 @@ import { Request, Response } from 'express';
 
   export const getUsers = async(_req: Request, res: Response) => {
     try {
-      const users = await User.find().populate('friends').populate('thoughts');
+      const users = await User.find() 
+      .select("-__v");
       res.json(users);
     } catch (err) {
       res.status(500).json(err);
@@ -12,8 +13,8 @@ import { Request, Response } from 'express';
 
   export const getSingleUser = async(req: Request, res: Response) => {
     try {
-      const user = await User.findOne({ _id: req.params.userId }).populate('friends').populate('thoughts')
-        .select('-__v');
+      const user = await User.findOne({ _id: req.params.userId }) 
+      .select("-__v");
 
       if (!user) {
          res.status(404).json({ message: 'No user with that ID' });
@@ -38,8 +39,10 @@ import { Request, Response } from 'express';
     // update a user by id
     export const updateUserById = async(req: Request, res: Response) => {
       try {
-        const updatedUser = await User.findOneAndUpdate( { _id: req
-            .params.userId  }, req.body , { new: true });
+        const updatedUser = await User.findOneAndUpdate( 
+            { _id: req.params.userId  }, // find user by id
+            {$set: req.body }, // update user data
+            { new: true }); // return updated user data
         if (!updatedUser) {
             res.status(404).json({ message: 'No user with this ID!' });
             return;
@@ -64,7 +67,7 @@ import { Request, Response } from 'express';
       }
     }
 
-    // add a new friend to a user's friend list
+    // add a new friend to a user's friend list and return the updated user data which should be friends for both users
     export const addNewFriend = async(req: Request, res: Response) => {
       try {
         const updatedUser = await User.findOneAndUpdate(
